@@ -11,7 +11,7 @@ public class Database {
 
     private ArrayList<Product> productDatabase;
 
-    public void Database(){
+    public Database(){
         this.productDatabase=new ArrayList<Product>();
     }
 

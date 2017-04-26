@@ -17,12 +17,12 @@ public class Controller implements iController{
     private Database database;
     private Receipt receipt;
 
-    public void Controller(LCDdisplay disp, Scanner scan, Printer prnt, Database data){
+    public Controller(LCDdisplay disp, Scanner scan, Printer prnt, Database data, Receipt recpt){
         display = disp;
         scanner = scan;
         printer = prnt;
         database = data;
-        receipt = new Receipt();
+        receipt = recpt;
     }
 
     public void exit(){
@@ -35,7 +35,7 @@ public class Controller implements iController{
     }
 
     public void productNotFound() {
-        display.displayInfo("com.Model.Product not found");
+        display.displayInfo("Product not found");
     }
 
     public void productFound(Product product) {
@@ -44,20 +44,20 @@ public class Controller implements iController{
     }
 
     public void service(String barcode) {
-        String scanResult = scanner.scan(barcode);
-        if(!scanResult.equals("Invalid bar-code")){
-            Product product = database.findProduct(scanResult);
-            if(!product.equals(null)){
-                productFound(product);
-            }
-            else{
-                productNotFound();
-            }
+        if(scanner.scan(barcode).equals("exit")){
+            exit();
         }
-        else{
-            invalidProduct();
+        else {
+            if (!scanner.scan(barcode).equals("Invalid bar-code")) {
+                Product product = database.findProduct(scanner.scan(barcode));
+                if (!product.equals(null)) {
+                    productFound(product);
+                } else {
+                    productNotFound();
+                }
+            } else {
+                invalidProduct();
+            }
         }
     }
-
-
 }
