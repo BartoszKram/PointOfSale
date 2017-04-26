@@ -1,12 +1,9 @@
-package com;
+package com.database;
 
-import com.Model.Product;
+import com.model.Product;
 
 import java.util.ArrayList;
 
-/**
- * Created by kram on 25.04.17.
- */
 public class Database {
 
     private ArrayList<Product> productDatabase;
@@ -17,10 +14,6 @@ public class Database {
 
     public void addProductToDatabase(Product product){
         this.productDatabase.add(product);
-    }
-
-    public void deleteProductFromDatabase(Product product){
-        this.productDatabase.remove(product);
     }
 
     public Product findProduct(String barcode){

@@ -1,10 +1,7 @@
-package com;
+package com.service;
 
-import com.Model.Product;
+import com.model.Product;
 
-/**
- * Created by kram on 25.04.17.
- */
 public interface iController {
 
     void exit();

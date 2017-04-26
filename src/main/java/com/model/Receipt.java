@@ -1,10 +1,7 @@
-package com.Model;
+package com.model;
 
 import java.util.ArrayList;
 
-/**
- * Created by kram on 25.04.17.
- */
 public class Receipt {
 
     private ArrayList<Product> productList;

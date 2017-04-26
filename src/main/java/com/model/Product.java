@@ -1,8 +1,5 @@
-package com.Model;
+package com.model;
 
-/**
- * Created by kram on 25.04.17.
- */
 public class Product {
 
     private String name;

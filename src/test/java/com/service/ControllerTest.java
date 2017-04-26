@@ -1,18 +1,17 @@
-package com;
+package com.service;
 
 import com.IO.LCDdisplay;
 import com.IO.Printer;
 import com.IO.Scanner;
-import com.Model.Product;
-import com.Model.Receipt;
+import com.model.Product;
+import com.model.Receipt;
+import com.service.Controller;
+import com.database.Database;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-/**
- * Created by kram on 26.04.17.
- */
 public class ControllerTest {
 
     private Controller controller;

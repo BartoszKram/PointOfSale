@@ -1,18 +1,15 @@
 package com.IO;
 
 
-import com.Controller;
-import com.Database;
-import com.Model.Product;
+import com.service.Controller;
+import com.database.Database;
+import com.model.Product;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-/**
- * Created by kram on 25.04.17.
- */
 public class ScannerTest {
 
     private Scanner scanner;
@@ -32,19 +29,19 @@ public class ScannerTest {
     public void testScanEmpty(){
         String empty = "";
         String result = scanner.scan(empty);
-        assertEquals(result,"Invalid bar-code");
+        assertEquals("Invalid bar-code", result);
     }
 
     @Test
     public void testScanExit(){
-        assertEquals(scanner.scan("exit"),"exit");
+        assertEquals("exit",scanner.scan("exit"));
     }
 
     @Test
     public void testScan(){
         String barcode = "12345";
         String result = scanner.scan(barcode);
-        assertEquals(result,barcode);
+        assertEquals(barcode,result);
     }
 
 }

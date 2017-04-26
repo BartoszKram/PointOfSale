@@ -1,10 +1,7 @@
 package com.IO;
 
-import com.Model.Product;
+import com.model.Product;
 
-/**
- * Created by kram on 25.04.17.
- */
 public class LCDdisplay {
 
     public void displayInfo(String info){
@@ -12,11 +9,11 @@ public class LCDdisplay {
     }
 
     public void displayTotal(Double total){
-        System.out.printf("Total: %f\n", total);
+        System.out.printf("Total: %.2f\n", total);
     }
 
     public void displayProduct(Product product){
-        System.out.printf("%s Price: $f\n",product.getName(),product.getPrice());
+        System.out.printf("%s Price: %.2f\n",product.getName(),product.getPrice());
     }
 
 }

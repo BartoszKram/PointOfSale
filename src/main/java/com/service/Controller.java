@@ -1,13 +1,15 @@
-package com;
+package com.service;
 
+import com.database.Database;
 import com.IO.LCDdisplay;
 import com.IO.Printer;
 import com.IO.Scanner;
-import com.Model.Product;
-import com.Model.Receipt;
+import com.model.Product;
+import com.model.Receipt;
+
 
 /**
- * Created by kram on 25.04.17.
+ * Controller is a class created to manage communication between IO devices and database
  */
 public class Controller implements iController{
 
@@ -43,6 +45,12 @@ public class Controller implements iController{
         receipt.addProduct(product);
     }
 
+    /**
+     * Method called for every String read from System.in
+     * It decides which method will be called further : exit(), productNotFound(), productFound() or invalidProduct()
+     *
+     * @param barcode String parameter passed to Scanner
+     */
     public void service(String barcode) {
         if(scanner.scan(barcode).equals("exit")){
             exit();
@@ -50,10 +58,10 @@ public class Controller implements iController{
         else {
             if (!scanner.scan(barcode).equals("Invalid bar-code")) {
                 Product product = database.findProduct(scanner.scan(barcode));
-                if (!product.equals(null)) {
-                    productFound(product);
-                } else {
+                if (product==null) {
                     productNotFound();
+                } else {
+                    productFound(product);
                 }
             } else {
                 invalidProduct();

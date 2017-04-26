@@ -1,4 +1,4 @@
-package com.Model;
+package com.model;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,9 +6,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by kram on 25.04.17.
- */
 public class ReceiptTest {
 
     private Receipt receipt;
@@ -27,7 +24,6 @@ public class ReceiptTest {
         Product testProduct2 = new Product("Product2","123456",50.00);
         receipt.addProduct(testProduct2);
         assertTrue(receipt.getProductList().contains(testProduct2));
-        assertEquals(receipt.getTotal(),149.99,0);
+        assertEquals(149.99,receipt.getTotal(),0);
     }
-
 }
